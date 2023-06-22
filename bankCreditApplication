@@ -1,0 +1,171 @@
+{
+  "title": "Bank Credit Application",
+  "description": "A form to collect client information for a credit application",
+  "type": "object",
+  "properties": {
+    "personalInfo": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "description": "The client's first name"
+        },
+        "lastName": {
+          "type": "string",
+          "description": "The client's last name"
+        },
+        "dateOfBirth": {
+          "type": "string",
+          "format": "date",
+          "description": "The client's date of birth"
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "street": {
+              "type": "string",
+              "description": "The client's street address"
+            },
+            "city": {
+              "type": "string",
+              "description": "The city where the client resides"
+            },
+            "state": {
+              "type": "string",
+              "description": "The state where the client resides"
+            },
+            "zip": {
+              "type": "string",
+              "description": "The ZIP code of the client's location"
+            }
+          },
+          "required": ["street", "city", "state", "zip"],
+          "description": "The client's address details"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "The client's email address"
+        },
+        "phone": {
+          "type": "string",
+          "description": "The client's phone number"
+        },
+        "employment": {
+          "type": "object",
+          "properties": {
+            "employer": {
+              "type": "string",
+              "description": "The name of the client's employer"
+            },
+            "jobTitle": {
+              "type": "string",
+              "description": "The client's job title"
+            },
+            "income": {
+              "type": "number",
+              "minimum": 0,
+              "description": "The client's monthly income"
+            },
+            "employmentType": {
+              "type": "string",
+              "description": "The type of employment (e.g., full-time, part-time)"
+            },
+            "employmentDuration": {
+              "type": "number",
+              "minimum": 0,
+              "description": "The duration of employment in months"
+            },
+            "previousEmployer": {
+              "type": "string",
+              "description": "The name of the client's previous employer"
+            }
+          },
+          "required": ["employer", "jobTitle", "income", "employmentType", "employmentDuration"],
+          "description": "The client's employment details"
+        },
+        "financialInfo": {
+          "type": "object",
+          "properties": {
+            "citizenship": {
+              "type": "string",
+              "description": "The client's citizenship status"
+            },
+            "socialSecurityNumber": {
+              "type": "string",
+              "description": "The client's social security number"
+            },
+            "creditScore": {
+              "type": "integer",
+              "minimum": 300,
+              "maximum": 850,
+              "description": "The client's credit score"
+            },
+            "existingDebts": {
+              "type": "number",
+              "minimum": 0,
+              "description": "The total amount of the client's existing debts"
+            },
+            "monthlyExpenses": {
+              "type": "number",
+              "minimum": 0,
+              "description": "The client's total monthly expenses"
+            }
+          },
+          "required": ["citizenship", "socialSecurityNumber", "creditScore", "existingDebts", "monthlyExpenses"],
+          "description": "The client's financial information"
+        }
+      },
+      "required": ["firstName", "lastName", "dateOfBirth", "address", "email", "phone", "employment", "financialInfo"],
+      "description": "The client's personal information"
+    },
+    "creditInfo": {
+      "type": "object",
+      "properties": {
+        "creditAmount": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The requested credit amount"
+        },
+        "purpose": {
+          "type": "string",
+          "description": "The purpose of the credit"
+        },
+        "repaymentTerm": {
+          "type": "string",
+          "description": "The desired repayment term"
+        },
+        "collateral": {
+          "type": "string",
+          "description": "The collateral provided for the credit (if any)"
+        },
+        "guarantor": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "The name of the guarantor"
+            },
+            "address": {
+              "type": "string",
+              "description": "The address of the guarantor"
+            },
+            "phone": {
+              "type": "string",
+              "description": "The phone number of the guarantor"
+            },
+            "relation": {
+              "type": "string",
+              "description": "The relationship of the guarantor to the client"
+            }
+          },
+          "required": ["name", "address", "phone", "relation"],
+          "description": "Information about the guarantor (if applicable)"
+        }
+      },
+      "required": ["creditAmount", "purpose", "repaymentTerm"],
+      "description": "Information about the client's credit application"
+    }
+  },
+  "required": ["personalInfo", "creditInfo"]
+}
