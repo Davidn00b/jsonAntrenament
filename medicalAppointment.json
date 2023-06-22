@@ -1,0 +1,160 @@
+{
+  "title": "Medical Appointment Form",
+  "description": "A form to collect information about a client for a medical appointment",
+  "type": "object",
+  "properties": {
+    "personalInfo": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "description": "The client's first name"
+        },
+        "lastName": {
+          "type": "string",
+          "description": "The client's last name"
+        },
+        "dateOfBirth": {
+          "type": "string",
+          "format": "date",
+          "description": "The client's date of birth"
+        },
+        "gender": {
+          "type": "string",
+          "enum": ["Male", "Female", "Other"],
+          "description": "The client's gender"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "The client's email address"
+        },
+        "phone": {
+          "type": "string",
+          "description": "The client's phone number"
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "street": {
+              "type": "string",
+              "description": "The client's street address"
+            },
+            "city": {
+              "type": "string",
+              "description": "The client's city"
+            },
+            "state": {
+              "type": "string",
+              "description": "The client's state"
+            },
+            "zip": {
+              "type": "string",
+              "description": "The client's ZIP code"
+            }
+          },
+          "required": ["street", "city", "state", "zip"],
+          "description": "The client's address"
+        }
+      },
+      "required": ["firstName", "lastName", "dateOfBirth", "gender", "email", "phone", "address"],
+      "description": "The client's personal information"
+    },
+    "appointmentDetails": {
+      "type": "object",
+      "properties": {
+        "appointmentDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The date of the medical appointment"
+        },
+        "appointmentTime": {
+          "type": "string",
+          "format": "time",
+          "description": "The time of the medical appointment"
+        },
+        "doctorName": {
+          "type": "string",
+          "description": "The name of the doctor or healthcare professional"
+        },
+        "reasonForVisit": {
+          "type": "string",
+          "description": "The reason for the medical appointment"
+        },
+        "medicalHistory": {
+          "type": "string",
+          "description": "The client's medical history"
+        },
+        "currentMedications": {
+          "type": "string",
+          "description": "Any current medications the client is taking"
+        },
+        "allergies": {
+          "type": "string",
+          "description": "Any allergies the client has"
+        },
+        "additionalNotes": {
+          "type": "string",
+          "description": "Any additional notes or comments"
+        }
+      },
+      "required": ["appointmentDate", "appointmentTime", "doctorName", "reasonForVisit"],
+      "description": "Details of the medical appointment"
+    },
+    "insuranceInfo": {
+      "type": "object",
+      "properties": {
+        "hasInsurance": {
+          "type": "boolean",
+          "description": "Indicates if the client has medical insurance"
+        },
+        "insuranceProvider": {
+          "type": "string",
+          "description": "The name of the insurance provider"
+        },
+        "insurancePolicyNumber": {
+          "type": "string",
+          "description": "The client's insurance policy number"
+        }
+      },
+      "required": ["hasInsurance"],
+      "description": "Information about the client's medical insurance"
+    },
+    "emergencyContact": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "The name of the emergency contact"
+        },
+        "relationship": {
+          "type": "string",
+          "description": "The relationship to the client"
+        },
+        "phone": {
+          "type": "string",
+          "description": "The phone number of the emergency contact"
+        }
+      },
+      "required": ["name", "relationship", "phone"],
+      "description": "Emergency contact information"
+    },
+    "consent": {
+      "type": "object",
+      "properties": {
+        "isConsentGiven": {
+          "type": "boolean",
+          "description": "Indicates if the client gives consent for the medical appointment"
+        },
+        "consentDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The date when the client provided consent"
+        }
+      },
+      "required": ["isConsentGiven"],
+      "description": "Consent information"
+    }
+  },
+  "required": ["personalInfo", "appointmentDetails", "insuranceInfo", "emergencyContact", "consent"]
+}
