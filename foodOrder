@@ -1,0 +1,85 @@
+{
+  "title": "Online Food Order",
+  "description": "A form to collect client information for an online food order",
+  "type": "object",
+  "properties": {
+    "personalInfo": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "description": "The client's first name"
+        },
+        "lastName": {
+          "type": "string",
+          "description": "The client's last name"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "The client's email address"
+        },
+        "phone": {
+          "type": "string",
+          "description": "The client's phone number"
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "street": {
+              "type": "string",
+              "description": "The client's street address"
+            },
+            "city": {
+              "type": "string",
+              "description": "The city where the client resides"
+            },
+            "state": {
+              "type": "string",
+              "description": "The state where the client resides"
+            },
+            "zip": {
+              "type": "string",
+              "description": "The ZIP code of the client's location"
+            }
+          },
+          "required": ["street", "city", "state", "zip"],
+          "description": "The client's address details"
+        }
+      },
+      "required": ["firstName", "lastName", "email", "phone", "address"],
+      "description": "The client's personal information"
+    },
+    "orderInfo": {
+      "type": "object",
+      "properties": {
+        "items": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "description": "The name of the menu item"
+              },
+              "quantity": {
+                "type": "integer",
+                "minimum": 1,
+                "description": "The quantity of the menu item"
+              }
+            },
+            "required": ["name", "quantity"],
+            "description": "Details of the menu items ordered"
+          }
+        },
+        "specialInstructions": {
+          "type": "string",
+          "description": "Any special instructions or preferences for the order"
+        }
+      },
+      "required": ["items"],
+      "description": "Information about the client's food order"
+    }
+  },
+  "required": ["personalInfo", "orderInfo"]
+}
