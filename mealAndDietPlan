@@ -1,0 +1,174 @@
+{
+  "title": "Personalized Meal and Diet Plan",
+  "description": "A form to collect client information for a personalized meal and diet plan",
+  "type": "object",
+  "properties": {
+    "personalInfo": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "description": "The client's first name"
+        },
+        "lastName": {
+          "type": "string",
+          "description": "The client's last name"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "The client's email address"
+        },
+        "phone": {
+          "type": "string",
+          "description": "The client's phone number"
+        },
+        "gender": {
+          "type": "string",
+          "description": "The client's gender"
+        },
+        "age": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "The client's age"
+        },
+        "height": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The client's height in centimeters"
+        },
+        "weight": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The client's weight in kilograms"
+        }
+      },
+      "required": ["firstName", "lastName", "email", "phone", "gender", "age", "height", "weight"],
+      "description": "The client's personal information"
+    },
+    "fitnessGoals": {
+      "type": "object",
+      "properties": {
+        "primaryGoal": {
+          "type": "string",
+          "description": "The client's primary fitness goal"
+        },
+        "secondaryGoals": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Any additional fitness goals the client has"
+        }
+      },
+      "description": "The client's fitness goals"
+    },
+    "dietaryPreferences": {
+      "type": "object",
+      "properties": {
+        "foodRestrictions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Any food restrictions the client has"
+        },
+        "likes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Foods that the client enjoys"
+        },
+        "dislikes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Foods that the client dislikes"
+        }
+      },
+      "description": "The client's dietary preferences"
+    },
+    "currentDiet": {
+      "type": "object",
+      "properties": {
+        "currentMealPlan": {
+          "type": "string",
+          "description": "The client's current meal plan (if any)"
+        },
+        "caloricIntake": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The client's current daily caloric intake"
+        },
+        "macronutrientRatio": {
+          "type": "object",
+          "properties": {
+            "protein": {
+              "type": "number",
+              "minimum": 0,
+              "description": "The client's current protein intake (in grams)"
+            },
+            "carbohydrate": {
+              "type": "number",
+              "minimum": 0,
+              "description": "The client's current carbohydrate intake (in grams)"
+            },
+            "fat": {
+              "type": "number",
+              "minimum": 0,
+              "description": "The client's current fat intake (in grams)"
+            }
+          },
+          "description": "The client's current macronutrient ratio"
+        }
+      },
+      "description": "The client's current diet and eating habits"
+    },
+    "workoutRoutine": {
+      "type": "object",
+      "properties": {
+        "currentRoutine": {
+          "type": "string",
+          "description": "The client's current workout routine (if any)"
+        },
+        "exerciseFrequency": {
+          "type": "string",
+          "description": "How often the client exercises"
+        },
+        "preferredExerciseTypes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The client's preferred types of exercise"
+        },
+        "workoutDuration": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The client's preferred workout duration (in minutes)"
+        },
+        "restDaysPerWeek": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The number of rest days per week the client prefers"
+        },
+        "workoutLocation": {
+          "type": "string",
+          "description": "The client's preferred workout location"
+        },
+        "fitnessEquipment": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Fitness equipment the client has access to"
+        }
+      },
+      "description": "The client's workout routine and preferences"
+    }
+  },
+  "required": ["personalInfo", "fitnessGoals", "dietaryPreferences", "currentDiet", "workoutRoutine"],
+  "additionalProperties": false
+}
