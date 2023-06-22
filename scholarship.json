@@ -1,0 +1,215 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Scholarship Application Form",
+  "description": "A form to collect information about a student applying for a scholarship",
+  "type": "object",
+  "properties": {
+    "personalInfo": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "description": "The student's first name"
+        },
+        "lastName": {
+          "type": "string",
+          "description": "The student's last name"
+        },
+        "dateOfBirth": {
+          "type": "string",
+          "format": "date",
+          "description": "The student's date of birth"
+        },
+        "gender": {
+          "type": "string",
+          "enum": ["Male", "Female", "Other"],
+          "description": "The student's gender"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "The student's email address"
+        },
+        "phone": {
+          "type": "string",
+          "description": "The student's phone number"
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "street": {
+              "type": "string",
+              "description": "The student's street address"
+            },
+            "city": {
+              "type": "string",
+              "description": "The student's city"
+            },
+            "state": {
+              "type": "string",
+              "description": "The student's state"
+            },
+            "zip": {
+              "type": "string",
+              "description": "The student's ZIP code"
+            }
+          },
+          "required": ["street", "city", "state", "zip"],
+          "description": "The student's address"
+        }
+      },
+      "required": ["firstName", "lastName", "dateOfBirth", "gender", "email", "phone", "address"],
+      "description": "The student's personal information"
+    },
+    "educationalInfo": {
+      "type": "object",
+      "properties": {
+        "schoolName": {
+          "type": "string",
+          "description": "The name of the student's current school"
+        },
+        "schoolAddress": {
+          "type": "object",
+          "properties": {
+            "street": {
+              "type": "string",
+              "description": "The street address of the student's school"
+            },
+            "city": {
+              "type": "string",
+              "description": "The city of the student's school"
+            },
+            "state": {
+              "type": "string",
+              "description": "The state of the student's school"
+            },
+            "zip": {
+              "type": "string",
+              "description": "The ZIP code of the student's school"
+            }
+          },
+          "required": ["street", "city", "state", "zip"],
+          "description": "The address of the student's school"
+        },
+        "gradeLevel": {
+          "type": "string",
+          "description": "The student's current grade level"
+        },
+        "gpa": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 4,
+          "description": "The student's current GPA (Grade Point Average)"
+        },
+        "major": {
+          "type": "string",
+          "description": "The student's intended major or area of study"
+        }
+      },
+      "required": ["schoolName", "schoolAddress", "gradeLevel", "gpa", "major"],
+      "description": "The student's educational information"
+    },
+    "financialInfo": {
+      "type": "object",
+      "properties": {
+        "isEmployed": {
+          "type": "boolean",
+          "description": "Indicates if the student is currently employed"
+        },
+        "employmentDetails": {
+          "type": "string",
+          "description": "Details about the student's current employment"
+        },
+        "annualIncome": {
+          "type": "number",
+          "minimum": 0,
+          "description": "The student's annual income or the income of the student's parent/guardian"
+        },
+        "familySize": {
+          "type": "integer",
+          "minimum": 1,
+          "description": "The number of members in the student's family"
+        },
+        "isFinancialAid": {
+          "type": "boolean",
+          "description": "Indicates if the student is receiving any other financial aid"
+        },
+        "financialAidDetails": {
+          "type": "string",
+          "description": "Details about the financial aid the student is receiving"
+        }
+      },
+      "required": ["isEmployed", "annualIncome", "familySize", "isFinancialAid"],
+      "description": "The student's financial information"
+    },
+    "essay": {
+      "type": "string",
+      "description": "The student's essay or statement of purpose for the scholarship application"
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the reference"
+          },
+          "organization": {
+            "type": "string",
+            "description": "The organization or institution the reference is affiliated with"
+          },
+          "email": {
+            "type": "string",
+            "format": "email",
+            "description": "The email address of the reference"
+          },
+          "phone": {
+            "type": "string",
+            "description": "The phone number of the reference"
+          }
+        },
+        "required": ["name", "organization", "email", "phone"],
+        "description": "Information about a reference for the student"
+      },
+      "description": "References for the student's scholarship application"
+    },
+    "additionalDocuments": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "name": {
+            "type": "string",
+            "description": "The name of the document"
+          },
+          "description": {
+            "type": "string",
+            "description": "A brief description of the document"
+          }
+        },
+        "required": ["name"],
+        "description": "Information about an additional document submitted by the student"
+      },
+      "description": "Additional documents submitted by the student"
+    },
+    "consent": {
+      "type": "object",
+      "properties": {
+        "isConsentGiven": {
+          "type": "boolean",
+          "description": "Indicates if the student gives consent for the scholarship application"
+        },
+        "consentDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The date when the student provided consent"
+        }
+      },
+      "required": ["isConsentGiven"],
+      "description": "Consent information"
+    }
+  },
+  "required": ["personalInfo", "educationalInfo", "financialInfo", "essay", "references", "consent"],
+  "description": "Scholarship application form for collecting information about a student"
+}
