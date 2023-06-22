@@ -1,0 +1,114 @@
+{
+  "title": "Hair Salon Client Information",
+  "description": "A form to collect client information for a hair salon",
+  "type": "object",
+  "properties": {
+    "personalInfo": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "description": "The client's first name"
+        },
+        "lastName": {
+          "type": "string",
+          "description": "The client's last name"
+        },
+        "dateOfBirth": {
+          "type": "string",
+          "format": "date",
+          "description": "The client's date of birth"
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "street": {
+              "type": "string",
+              "description": "The client's street address"
+            },
+            "city": {
+              "type": "string",
+              "description": "The city where the client resides"
+            },
+            "state": {
+              "type": "string",
+              "description": "The state where the client resides"
+            },
+            "zip": {
+              "type": "string",
+              "description": "The ZIP code of the client's location"
+            }
+          },
+          "required": ["street", "city", "state", "zip"],
+          "description": "The client's address details"
+        },
+        "contact": {
+          "type": "object",
+          "properties": {
+            "email": {
+              "type": "string",
+              "format": "email",
+              "description": "The client's email address"
+            },
+            "phone": {
+              "type": "string",
+              "description": "The client's phone number"
+            }
+          },
+          "required": ["email", "phone"],
+          "description": "The client's contact details"
+        }
+      },
+      "required": ["firstName", "lastName", "dateOfBirth", "address", "contact"],
+      "description": "The client's personal information"
+    },
+    "hairInfo": {
+      "type": "object",
+      "properties": {
+        "hairType": {
+          "type": "string",
+          "description": "The client's hair type (e.g., straight, wavy, curly)"
+        },
+        "hairLength": {
+          "type": "string",
+          "description": "The length of the client's hair (e.g., short, medium, long)"
+        },
+        "hairColor": {
+          "type": "string",
+          "description": "The client's current hair color"
+        },
+        "desiredColor": {
+          "type": "string",
+          "description": "The desired hair color of the client"
+        },
+        "desiredStyle": {
+          "type": "string",
+          "description": "The desired hairstyle or hair treatment of the client"
+        }
+      },
+      "required": ["hairType", "hairLength", "hairColor", "desiredColor", "desiredStyle"],
+      "description": "Information about the client's hair"
+    },
+    "appointmentInfo": {
+      "type": "object",
+      "properties": {
+        "appointmentDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The date of the client's appointment"
+        },
+        "appointmentTime": {
+          "type": "string",
+          "description": "The time of the client's appointment"
+        },
+        "stylistName": {
+          "type": "string",
+          "description": "The name of the stylist assigned to the client"
+        }
+      },
+      "required": ["appointmentDate", "appointmentTime", "stylistName"],
+      "description": "Information about the client's appointment"
+    }
+  },
+  "required": ["personalInfo", "hairInfo", "appointmentInfo"]
+}
