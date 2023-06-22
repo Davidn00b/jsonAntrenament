@@ -1,0 +1,191 @@
+{
+  "title": "Gym Membership Application",
+  "description": "A form to collect information about a client for creating a gym membership",
+  "type": "object",
+  "properties": {
+    "personalInfo": {
+      "type": "object",
+      "properties": {
+        "firstName": {
+          "type": "string",
+          "description": "The client's first name"
+        },
+        "lastName": {
+          "type": "string",
+          "description": "The client's last name"
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "description": "The client's email address"
+        },
+        "phone": {
+          "type": "string",
+          "description": "The client's phone number"
+        },
+        "dateOfBirth": {
+          "type": "string",
+          "format": "date",
+          "description": "The client's date of birth"
+        },
+        "gender": {
+          "type": "string",
+          "description": "The client's gender"
+        },
+        "address": {
+          "type": "object",
+          "properties": {
+            "street": {
+              "type": "string",
+              "description": "The client's street address"
+            },
+            "city": {
+              "type": "string",
+              "description": "The client's city"
+            },
+            "state": {
+              "type": "string",
+              "description": "The client's state"
+            },
+            "zip": {
+              "type": "string",
+              "description": "The client's ZIP code"
+            }
+          },
+          "required": ["street", "city", "state", "zip"],
+          "description": "The client's address"
+        }
+      },
+      "required": ["firstName", "lastName", "email", "phone", "dateOfBirth", "gender", "address"],
+      "description": "The client's personal information"
+    },
+    "membershipInfo": {
+      "type": "object",
+      "properties": {
+        "membershipType": {
+          "type": "string",
+          "description": "The type of gym membership selected by the client"
+        },
+        "membershipDuration": {
+          "type": "string",
+          "description": "The duration of the membership (e.g., monthly, yearly)"
+        },
+        "startDate": {
+          "type": "string",
+          "format": "date",
+          "description": "The start date of the membership"
+        },
+        "paymentInfo": {
+          "type": "object",
+          "properties": {
+            "cardNumber": {
+              "type": "string",
+              "description": "The client's credit card number"
+            },
+            "cardHolderName": {
+              "type": "string",
+              "description": "The name of the credit card holder"
+            },
+            "expirationDate": {
+              "type": "string",
+              "format": "date",
+              "description": "The expiration date of the credit card"
+            },
+            "cvv": {
+              "type": "string",
+              "description": "The CVV/CVC code of the credit card"
+            }
+          },
+          "required": ["cardNumber", "cardHolderName", "expirationDate", "cvv"],
+          "description": "Payment information for the gym membership"
+        }
+      },
+      "required": ["membershipType", "membershipDuration", "startDate", "paymentInfo"],
+      "description": "Information about the gym membership"
+    },
+    "healthInfo": {
+      "type": "object",
+      "properties": {
+        "healthConditions": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Any existing health conditions the client has"
+        },
+        "injuries": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Any past or current injuries the client has"
+        },
+        "medications": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Any medications the client is currently taking"
+        },
+        "allergies": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Any allergies the client has"
+        },
+        "emergencyContact": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "The name of the emergency contact person"
+            },
+            "phone": {
+              "type": "string",
+              "description": "The phone number of the emergency contact person"
+            },
+            "relationship": {
+              "type": "string",
+              "description": "The relationship of the emergency contact person to the client"
+            }
+          },
+          "required": ["name", "phone", "relationship"],
+          "description": "Emergency contact information"
+        }
+      },
+      "description": "The client's health information"
+    },
+    "preferences": {
+      "type": "object",
+      "properties": {
+        "preferredGymLocation": {
+          "type": "string",
+          "description": "The client's preferred gym location"
+        },
+        "workoutPreferences": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "The client's preferred workout activities"
+        },
+        "trainerPreference": {
+          "type": "string",
+          "description": "The client's preference for having a personal trainer"
+        },
+        "classPreference": {
+          "type": "string",
+          "description": "The client's preference for attending fitness classes"
+        },
+        "additionalComments": {
+          "type": "string",
+          "description": "Any additional comments or preferences provided by the client"
+        }
+      },
+      "description": "The client's preferences and additional comments"
+    }
+  },
+  "required": ["personalInfo", "membershipInfo", "healthInfo", "preferences"],
+  "additionalProperties": false
+}
